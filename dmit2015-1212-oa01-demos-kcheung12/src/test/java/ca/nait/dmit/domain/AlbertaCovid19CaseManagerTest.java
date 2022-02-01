@@ -1,10 +1,12 @@
 package ca.nait.dmit.domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,5 +42,21 @@ class AlbertaCovid19CaseManagerTest {
         List<String> ahsZoneList = caseManager.distinctAhsZones();
         ahsZoneList.forEach(System.out::println);
         assertEquals(6,ahsZoneList.size());
+    }
+
+    @Test
+    @DisplayName("findById")
+    void findById() {
+        Optional<AlbertaCovid19Case> optionalResult = caseManager.findById(1);
+        assertTrue(optionalResult.isPresent());
+        AlbertaCovid19Case result = optionalResult.get();
+        assertEquals(1, result.getId());
+        assertEquals("Edmonton Zone",result.getAhsZone());
+        assertEquals("Recovered",result.getCaseStatus());
+        assertEquals("Confirmed", result.getCaseType());
+        assertEquals("30-39 years",  result.getAgeGroup());
+
+        Optional<AlbertaCovid19Case> noOptionalResult = caseManager.findById(-1);
+        assertTrue(noOptionalResult.isEmpty());
     }
 }
