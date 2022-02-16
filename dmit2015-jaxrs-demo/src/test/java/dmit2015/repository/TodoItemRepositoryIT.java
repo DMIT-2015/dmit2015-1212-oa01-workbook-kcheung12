@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(ArquillianExtension.class)                  // Run with JUnit 5 instead of JUnit 4
 
-class TodoItemRepositoryIT {
+public class TodoItemRepositoryIT {
 
     @Inject
     private TodoItemRepository _todoRepository;
@@ -37,10 +37,10 @@ class TodoItemRepositoryIT {
 
         return ShrinkWrap.create(WebArchive.class,"test.war")
 //                .addAsLibraries(pomFile.resolve("groupId:artifactId:version").withTransitivity().asFile())
-//                .addAsLibraries(pomFile.resolve("com.h2database:h2:2.1.210").withTransitivity().asFile())
+                .addAsLibraries(pomFile.resolve("com.h2database:h2:1.4.200").withTransitivity().asFile())
                 .addAsLibraries(pomFile.resolve("org.hsqldb:hsqldb:2.6.1").withTransitivity().asFile())
-//                .addAsLibraries(pomFile.resolve("com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre11").withTransitivity().asFile())
-//                .addAsLibraries(pomFile.resolve("com.oracle.database.jdbc:ojdbc11:21.4.0.0.1").withTransitivity().asFile())
+                .addAsLibraries(pomFile.resolve("com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre17").withTransitivity().asFile())
+                .addAsLibraries(pomFile.resolve("com.oracle.database.jdbc:ojdbc11:21.5.0.0").withTransitivity().asFile())
                 .addAsLibraries(pomFile.resolve("org.hamcrest:hamcrest:2.2").withTransitivity().asFile())
 //                .addAsLibraries(pomFile.resolve("org.hibernate:hibernate-core-jakarta:5.6.5.Final").withTransitivity().asFile())
                 .addClass(ApplicationConfig.class)
@@ -56,9 +56,9 @@ class TodoItemRepositoryIT {
         currentTodoItem = new TodoItem();
         currentTodoItem.setName("Create Arquillian IT");
         currentTodoItem.setComplete(true);
-        _todoRepository.add(currentTodoItem);
+        _todoRepository.create(currentTodoItem);
 
-        Optional<TodoItem> optionalTodoItem = _todoRepository.findById(currentTodoItem.getId());
+        Optional<TodoItem> optionalTodoItem = _todoRepository.findOptional(currentTodoItem.getId());
         assertTrue(optionalTodoItem.isPresent());
         TodoItem existingTodoItem = optionalTodoItem.get();
         assertNotNull(existingTodoItem);
@@ -71,7 +71,7 @@ class TodoItemRepositoryIT {
     @Test
     void shouldFindOne() {
         final Long todoId = currentTodoItem.getId();
-        Optional<TodoItem> optionalTodoItem = _todoRepository.findById(todoId);
+        Optional<TodoItem> optionalTodoItem = _todoRepository.findOptional(todoId);
         assertTrue(optionalTodoItem.isPresent());
         TodoItem existingTodoItem = optionalTodoItem.get();
         assertNotNull(existingTodoItem);
@@ -83,7 +83,7 @@ class TodoItemRepositoryIT {
     @Order(1)
     @Test
     void shouldFindAll() {
-        List<TodoItem> queryResultList = _todoRepository.findAll();
+        List<TodoItem> queryResultList = _todoRepository.list();
         assertEquals(3, queryResultList.size());
 
         TodoItem firstTodoItem = queryResultList.get(0);
@@ -102,7 +102,7 @@ class TodoItemRepositoryIT {
         currentTodoItem.setComplete(false);
         _todoRepository.update(currentTodoItem);
 
-        Optional<TodoItem> optionalUpdatedTodoItem = _todoRepository.findById(currentTodoItem.getId());
+        Optional<TodoItem> optionalUpdatedTodoItem = _todoRepository.findOptional(currentTodoItem.getId());
         assertTrue(optionalUpdatedTodoItem.isPresent());
         TodoItem updatedTodoItem = optionalUpdatedTodoItem.get();
         assertNotNull(updatedTodoItem);
@@ -115,12 +115,12 @@ class TodoItemRepositoryIT {
     @Test
     void shouldDelete() {
         final Long todoId = currentTodoItem.getId();
-        Optional<TodoItem> optionalTodoItem = _todoRepository.findById(todoId);
+        Optional<TodoItem> optionalTodoItem = _todoRepository.findOptional(todoId);
         assertTrue(optionalTodoItem.isPresent());
         TodoItem existingTodoItem = optionalTodoItem.get();
         assertNotNull(existingTodoItem);
         _todoRepository.remove(existingTodoItem.getId());
-        optionalTodoItem = _todoRepository.findById(todoId);
+        optionalTodoItem = _todoRepository.findOptional(todoId);
         assertTrue(optionalTodoItem.isEmpty());
     }
 }
