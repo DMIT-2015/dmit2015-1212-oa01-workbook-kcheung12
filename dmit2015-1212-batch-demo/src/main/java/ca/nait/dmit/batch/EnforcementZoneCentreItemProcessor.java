@@ -3,15 +3,18 @@ package ca.nait.dmit.batch;
 import ca.nait.dmit.entity.EnforcementZoneCentre;
 import jakarta.batch.api.chunk.ItemProcessor;
 import jakarta.inject.Named;
+import jdk.jfr.Name;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.io.WKTReader;
 
 @Named
 public class EnforcementZoneCentreItemProcessor implements ItemProcessor {
+
     @Override
     public EnforcementZoneCentre processItem(Object item) throws Exception {
         String line = (String) item;
-        // grab from EnforcementZoneCentreBatchlet
         final String delimiter = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
         String[] tokens = line.split(delimiter, -1);    // The -1 limit allows for any number of fields and not discard trailing empty fields);
 
@@ -23,9 +26,17 @@ public class EnforcementZoneCentreItemProcessor implements ItemProcessor {
         currentEnforcementZoneCentre.setLatitude(Double.valueOf(tokens[4]));
         currentEnforcementZoneCentre.setLongitude(Double.valueOf(tokens[5]));
 
-        String wktText = "POINT" + tokens[6].replaceAll("[\",]","");
-        Point geoLocation = (org.locationtech.jts.geom.Point) new WKTReader().read(wktText);
+//        String wktText = "POINT" + tokens[6].replaceAll("[\",]","");
+//        Point geoLocation = (org.locationtech.jts.geom.Point) new WKTReader().read(wktText);
+
+        Point geoLocation = new GeometryFactory().createPoint(
+                new Coordinate(
+                        currentEnforcementZoneCentre.getLongitude(), currentEnforcementZoneCentre.getLatitude()
+                )
+        );
+
         currentEnforcementZoneCentre.setGeoLocation(geoLocation);
+
         return currentEnforcementZoneCentre;
     }
 }

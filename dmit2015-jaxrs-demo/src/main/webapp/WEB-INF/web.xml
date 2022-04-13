@@ -27,5 +27,9 @@
         </auth-constraint>
     </security-constraint>
     -->
+    <context-param>
+        <param-name>jwt.privatekey.filepath</param-name>
+        <param-value>/home/user2015/keys/jwt-private.pem</param-value>
+    </context-param>
 
 </web-app>
