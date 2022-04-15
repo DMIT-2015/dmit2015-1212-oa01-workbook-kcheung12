@@ -65,21 +65,24 @@ import java.util.logging.Logger;
  </context-param>
  *
  * Run your application on the server and use the curl command to verify that a JWT token is returned when a valid username and password is posted to the server.
- * You can POST JSON data to the server as follows:
  *
- curl -k -i -X POST https://localhost:8443/dmit2015-security-microservices-demo-start/webapi/jwt/jsonLogin \
+ * You can POST to this resource to get a JWT using an LDAP account as follows:
+
+ curl -k -i -X POST https://localhost:8443/backend/webapi/jwt/ldapJsonLogin \
+	-d '{"username":"DAUSTIN","password":"Password2015"}' \
+	-H 'Content-Type:application/json'
+
+ * You can POST to this resource to get a JWT using a database account as follows:
+
+ curl -k -i -X POST https://localhost:8443/backend/webapi/jwt/jsonLogin \
 	-d '{"username":"user01@dmit2015.ca","password":"Password2015"}' \
 	-H 'Content-Type:application/json'
 
- curl -k -i -X POST https://localhost:8443/dmit2015-security-microservices-demo-start/webapi/jwt/jsonLogin \
-	-d '{"username":"admin01@dmit2015.ca","password":"Password2015"}' \
-	-H 'Content-Type:application/json'
-
-  *
- * You can also POST FORM data to the server as follows:
- curl -k -i -X POST https://localhost:8443/dmit2015-security-microservices-demo-start/webapi/jwt/formLogin/ \
+ * You can submit an HTML form to this resource to get a JWT using a database account follows:
+ curl -k -i -X POST https://localhost:8443/backend/webapi/jwt/formLogin/ \
 	-d 'j_username=user01@dmit2015.ca&j_password=Password2015' \
 	-H 'Content-Type:application/x-www-form-urlencoded'
+
  *
  * @author https://github.com/wildfly/quickstart/tree/master/microprofile-jwt
  * @version 2021.03.17
@@ -90,10 +93,10 @@ import java.util.logging.Logger;
 @Path("jwt")
 public class JwtResource {
 
-	private Logger _logger = Logger.getLogger((JwtResource.class.getName()));
+    private Logger _logger = Logger.getLogger(JwtResource.class.getName());
 
-	@Inject
-	private CallerUserRepository callerUserRepository;	// for accessing our database of users
+//	@Inject
+//	private CallerUserRepository callerUserRepository;	// for accessing our database of users
 
 	@Inject
 	private Pbkdf2PasswordHash passwordHash;	// for hashing the plain text password to cipher text
@@ -109,20 +112,20 @@ public class JwtResource {
 	 * @param servletContext Injected by the container to allow use to read context parameters from web.xml
 	 * @return
 	 */
-	@Path("formLogin")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.TEXT_PLAIN)
-	@POST
-	public Response formLogin(
-			@FormParam("j_username") String username,
-			@FormParam("j_password") String password,
-			@Context ServletContext servletContext) {
-		JsonObject credential = Json.createObjectBuilder()
-				.add("username", username)
-				.add("password", password)
-				.build();
-		return jsonLogin(credential, servletContext);
-	}
+//	@Path("formLogin")
+//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//	@Produces(MediaType.TEXT_PLAIN)
+//	@POST
+//	public Response formLogin(
+//			@FormParam("j_username") String username,
+//			@FormParam("j_password") String password,
+//			@Context ServletContext servletContext) {
+//		JsonObject credential = Json.createObjectBuilder()
+//				.add("username", username)
+//				.add("password", password)
+//				.build();
+//		return jsonLogin(credential, servletContext);
+//	}
 
 	/**
 	 * Generate and return a JWT bearer token for the given username and password.
@@ -131,33 +134,33 @@ public class JwtResource {
 	 * @param servletContext Injected by the container to allow use to read context parameters from web.xml
 	 * @return A JWT beear token
 	 */
-	@POST
-	@Path("jsonLogin")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response jsonLogin(JsonObject credential, @Context ServletContext servletContext) {
-		String username = credential.getString("username");
-		String password = credential.getString("password");
-		String privateKeyPath = servletContext.getInitParameter("jwt.privatekey.filepath");
-
-		Optional<CallerUser> optionalCallerUser = callerUserRepository.findById(username);
-		if (optionalCallerUser.isPresent()) {
-			CallerUser existingCallerUser = optionalCallerUser.get();
-			if (passwordHash.verify(password.toCharArray(), existingCallerUser.getPassword())) {
-				String[] groups = existingCallerUser.getGroups().toArray(String[]::new);
-				try {
-					String token = TokenUtil.generateJWT(privateKeyPath, username, groups);
-					return Response.ok(token).build();
-				} catch (Exception e) {
-					e.printStackTrace();
-					return Response.serverError().entity(e.getMessage()).build();
-				}
-			}
-		}
-
-		String message = "Incorrect username and/or password.";
-		return Response.status(Status.BAD_REQUEST).entity(message).build();
-	}
+//	@POST
+//	@Path("jsonLogin")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public Response jsonLogin(JsonObject credential, @Context ServletContext servletContext) {
+//		String username = credential.getString("username");
+//		String password = credential.getString("password");
+//		String privateKeyPath = servletContext.getInitParameter("jwt.privatekey.filepath");
+//
+//		Optional<CallerUser> optionalCallerUser = callerUserRepository.findById(username);
+//		if (optionalCallerUser.isPresent()) {
+//			CallerUser existingCallerUser = optionalCallerUser.get();
+//			if (passwordHash.verify(password.toCharArray(), existingCallerUser.getPassword())) {
+//				String[] groups = existingCallerUser.getGroups().toArray(String[]::new);
+//				try {
+//					String token = TokenUtil.generateJWT(privateKeyPath, username, groups);
+//					return Response.ok(token).build();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//					return Response.serverError().entity(e.getMessage()).build();
+//				}
+//			}
+//		}
+//
+//		String message = "Incorrect username and/or password.";
+//		return Response.status(Status.BAD_REQUEST).entity(message).build();
+//	}
 
 
    	/**

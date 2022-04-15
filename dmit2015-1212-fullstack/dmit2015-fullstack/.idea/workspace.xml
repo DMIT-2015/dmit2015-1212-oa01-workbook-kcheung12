@@ -10,21 +10,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a68bb3c2-6fec-4aff-b98a-70d4dd5a717b" name="Changes" comment="" />
+    <list default="true" id="a68bb3c2-6fec-4aff-b98a-70d4dd5a717b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/config/JAXRSConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/jpa/AbstractJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/listener/ApplicationStartupListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/producer/LoggerProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/common/validator/BeanValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dmit2015/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dmit2015/repository/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dmit2015/resource/EmployeeResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dmit2015/security/JwtResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/dmit2015/security/TokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/META-INF/jwt-public.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/META-INF/microprofile-config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/.idea/artifacts/dmit2015_1212_jaxrs_demo_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/.idea/artifacts/dmit2015_1212_jaxrs_demo_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/TodoItemHttpRequest.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/TodoItemHttpRequest.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/dmit2015-1212-jaxrs-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/dmit2015-1212-jaxrs-demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/config/JAXRSConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/config/JAXRSConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/resource/TodoItemResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/resource/TodoItemResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/security/CallerUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/security/CallerUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/security/JwtResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/java/dmit2015/security/JwtResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/resources/META-INF/microprofile-config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/resources/META-INF/microprofile-config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../dmit2015-jaxrs-demo/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="DMIT2015 JPA Abstract Repository" />
+        <option value="DMIT2015 BeanValidator" />
+        <option value="DMIT2015 LoggerProducer" />
+        <option value="DMIT2015 JPA Entity Repository" />
+        <option value="DMIT2015 JAX-RS Resource" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -32,7 +81,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27kZJAHnYF1lieSEJmkRGDJ6ZHI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,21 +92,41 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17"
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "/home/user2015/git/dmit2015-1212-oa01-workbook-kcheung12/dmit2015-1212-fullstack/dmit2015-fullstack/pom.xml",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 26.0.0.Final">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="EmployeeHttpRequest | GET a JWT token for DAUSTIN" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" index="2" requestIdentifier="GET a JWT token for DAUSTIN" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="EmployeeHttpRequest | GET a JWT" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" index="2" requestIdentifier="GET a JWT" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="EmployeeHttpRequest | Look at it again" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" index="4" requestIdentifier="Look at it again" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="EmployeeHttpRequest | Look at it" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" requestIdentifier="Look at it" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="EmployeeHttpRequest | POST a new Employee" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/EmployeeHttpRequest.http" index="3" requestIdentifier="POST a new Employee" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="JBoss/WildFly 26.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 26.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/backend/api/hello-world" />
@@ -133,6 +204,23 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="HTTP Request.EmployeeHttpRequest | GET a JWT token for DAUSTIN" />
+      <item itemvalue="HTTP Request.EmployeeHttpRequest | Look at it" />
+      <item itemvalue="HTTP Request.EmployeeHttpRequest | GET a JWT" />
+      <item itemvalue="HTTP Request.EmployeeHttpRequest | Look at it again" />
+      <item itemvalue="HTTP Request.EmployeeHttpRequest | POST a new Employee" />
+      <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 26.0.0.Final" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.EmployeeHttpRequest | POST a new Employee" />
+        <item itemvalue="HTTP Request.EmployeeHttpRequest | GET a JWT token for DAUSTIN" />
+        <item itemvalue="HTTP Request.EmployeeHttpRequest | Look at it" />
+        <item itemvalue="HTTP Request.EmployeeHttpRequest | GET a JWT" />
+        <item itemvalue="HTTP Request.EmployeeHttpRequest | Look at it again" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -142,7 +230,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649865970120</updated>
-      <workItem from="1649865972911" duration="1982000" />
+      <workItem from="1649865972911" duration="8084000" />
+      <workItem from="1649955028893" duration="2645000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,41 @@
+### Look at it
+
+GET https://localhost:8443/backend/webapi/employees
+
+### GET a JWT token for DAUSTIN
+POST https://localhost:8443/backend/webapi/jwt/ldapJsonLogin
+Content-Type: application/json
+
+{
+  "username": "DAUSTIN",
+  "password": "Password2015"
+}
+
+### POST a new Employee
+# curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name": "Samwise Gamgee", "role": "gardener"}'
+POST https://localhost:8443/backend/webapi/employees
+Content-Type: application/json
+Authorization: Bearer eyJraWQiOiJxdWlja3N0YXJ0LWp3dC1pc3N1ZXIiLCJ0eXAiOiJqd3QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJEQVVTVElOIiwidXBuIjoiREFVU1RJTiIsImlzcyI6InF1aWNrc3RhcnQtand0LWlzc3VlciIsImF1ZCI6Imp3dC1hdWRpZW5jZSIsImdyb3VwcyI6WyJJVCJdLCJqdGkiOiI3NjQ5NjRkMy1lYTM0LTRkZjYtOTRlNi05NWQ5OTc4ODU3NmMiLCJpYXQiOjE2NDk5NTY3NDEsImV4cCI6MTY0OTk3MTE0MX0.N3cVjr6msquBuKkd8rVHryyEJOEVOOPBVcIGzdyG5rO1L-4RkvkyhwphW8z8Qpmy5TIHbB0iYilZk5Tr8aD9FlSLUWYA0Ae2FvdcRdtw5k-pKUWw0T5bi6vv4xy9FfVkuuTOqYQY6KImsqY-X71aTzbMX9cSTHy2jpxBUGiSSjZEsJQ1wd7-ul3CVYT9HPeBB3SEnWWeXkV5azPAVicYP6XoyzCcaXwjiTeHiINqC-sdmeE83OsfUMKq1aik80tOjG_sR2YTj-oZUO_fOthJN0_SX2ht_HAHZsZusGJLU55FfkNLIoUGYHuOzWNWC7_uQkc1gGNaZtxp1RfAJinr0g
+
+{
+  "name": "Samwise Gamgee",
+  "role": "gardener"
+}
+
+###
+PUT https://localhost:8443/backend/webapi/employees/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Samwise Gamgee",
+  "role": "ring bearer"
+}
+
+### Delete Employee
+# curl -X DELETE localhost:8080/employees/3
+DELETE https://localhost:8443/backend/webapi/employees/3
+
+### Look at it again
+
+GET https://localhost:8443/backend/webapi/employees/3

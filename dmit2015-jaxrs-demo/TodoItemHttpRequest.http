@@ -1,11 +1,44 @@
 ### Get all TodoItems
 GET http://localhost:8080/dmit2015-1212-jaxrs-demo/webapi/TodoItems
+### Get all TodoItems
+GET http://localhost:8080/webapi/TodoItems
+
 ### Get a single TodoItem with an id of 1
 GET http://localhost:8080/dmit2015-1212-jaxrs-demo/webapi/TodoItems/1
+### Get a single TodoItem with an id of 1
+GET http://localhost:8080/webapi/TodoItems/1
+
+### GET a JWT Token for user DLEE
+POST http://localhost:8080/webapi/jwt/ldapJsonLogin
+Content-Type:application/json
+
+{
+  "username": "DLEE",
+  "password":"Password2015"
+}
+
+### POST TodoItem using JWT
+
+POST http://localhost:8080/webapi/TodoItems
+Authorization: Bearer eyJraWQiOiJxdWlja3N0YXJ0LWp3dC1pc3N1ZXIiLCJ0eXAiOiJqd3QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJETEVFIiwidXBuIjoiRExFRSIsImlzcyI6InF1aWNrc3RhcnQtand0LWlzc3VlciIsImF1ZCI6Imp3dC1hdWRpZW5jZSIsImdyb3VwcyI6WyJTYWxlcyJdLCJqdGkiOiI0YzQwZDkzMy1kNDVmLTRhZWItOWUzMi05MDZhNDg1ZmQzNTAiLCJpYXQiOjE2NDk4MTc0NTksImV4cCI6MTY0OTgzMTg1OX0.BX9YoFrm4eG6g0DPPGEezRJEJ51xjV0qoQG1h_t80Xo1qWlRsbAkMEago6KYv9_PDVI8Dq52ZfiBU_xXKZxH00_ni0IpeUJLE1mOGKFt_opDp2vIvSw23hv4AmXEYoNMwrygNmR-9w92ZzgJkglLFzF0Lb1uvfUH7SmgXaMLWAXvfguV7MSxDZ4LsTeMwk1_q68e9CrWuhVgY89wKNC09eNJq1egyU5lfbGN9efhi8Hks6zjJMfTai4caXy5KEuCDtqiDHPZFvCIgCA4sexaC2pFUndAcquZTJ3rtUQO_0Ahed8ABfPkKx2TYX77e39nkSh3OhyA2cw59SRO3PGzXw
+Content-Type: application/json
+
+{
+  "name": "POST TodoItem using JWT",
+  "complete": true
+}
+
 ### POST a new TodoItem
 POST http://localhost:8080//dmit2015-1212-jaxrs-demo/webapi/TodoItems
 Content-Type: application/json
+
 {"name":"Finish DMIT2015 Assignment 2", "complete":false}
+### POST a new TodoItem
+POST http://localhost:8080/webapi/TodoItems
+Content-Type: application/json
+
+{"name":"Finish DMIT2015 Assignment 2", "complete":false}
+
 ### Get a single TodoItem with an id of 4
 GET http://localhost:8080/dmit2015-1212-jaxrs-demo/webapi/TodoItems/4
 ### Update TodoItem with an id of 2 and change name and complete properties.

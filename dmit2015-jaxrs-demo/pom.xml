@@ -15,6 +15,18 @@
         <junit.version>5.8.2</junit.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>5.0</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.directory.api</groupId>
+            <artifactId>api-all</artifactId>
+            <version>2.0.1</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -142,24 +154,24 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.33</version>
         </dependency>
-        <dependency>
-            <groupId>org.microshed</groupId>
-            <artifactId>microshed-testing-testcontainers</artifactId>
-            <version>0.9.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.microshed</groupId>
-            <artifactId>microshed-testing-wildfly</artifactId>
-            <version>0.9.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <version>1.15.2</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.microshed</groupId>-->
+<!--            <artifactId>microshed-testing-testcontainers</artifactId>-->
+<!--            <version>0.9.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.microshed</groupId>-->
+<!--            <artifactId>microshed-testing-wildfly</artifactId>-->
+<!--            <version>0.9.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.testcontainers</groupId>-->
+<!--            <artifactId>testcontainers</artifactId>-->
+<!--            <version>1.15.2</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -236,7 +248,8 @@
                 <artifactId>wildfly-jar-maven-plugin</artifactId>
                 <version>7.0.0.Final</version>
                 <configuration>
-                    <feature-pack-location>wildfly-preview@maven(org.jboss.universe:community-universe)</feature-pack-location>
+                    <feature-pack-location>wildfly-preview@maven(org.jboss.universe:community-universe)
+                    </feature-pack-location>
                     <layers>
                         <!-- https://docs.wildfly.org/26/Bootable_Guide.html#wildfly_layers -->
                         <layer>jaxrs-server</layer>
